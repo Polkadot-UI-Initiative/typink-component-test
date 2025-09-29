@@ -11,6 +11,8 @@ import {
   polkadotPeople,
   TypinkProvider,
 } from "typink";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 
 const supportedNetworks = [
   polkadot,
@@ -21,13 +23,17 @@ const supportedNetworks = [
   paseoPeople,
 ];
 
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <TypinkProvider
-      supportedNetworks={supportedNetworks}
-      defaultNetworkIds={supportedNetworks.map((network) => network.id)}
-    >
-      <App />
-    </TypinkProvider>
+    <QueryClientProvider client={queryClient}>
+      <TypinkProvider
+        supportedNetworks={supportedNetworks}
+        defaultNetworkIds={supportedNetworks.map((network) => network.id)}
+      >
+        <App />
+      </TypinkProvider>
+    </QueryClientProvider>
   </StrictMode>
 );
