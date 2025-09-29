@@ -11,6 +11,11 @@ import {
   polkadotPeople,
   TypinkProvider,
 } from "typink";
+import { toast, Toaster } from "sonner";
+import {
+  beginTxStatusNotification,
+  cancelTxStatusNotification,
+} from "./components/tx-notification";
 
 const supportedNetworks = [
   polkadot,
@@ -28,6 +33,26 @@ createRoot(document.getElementById("root")!).render(
       defaultNetworkIds={supportedNetworks.map((network) => network.id)}
     >
       <App />
+      <button
+        onClick={() => {
+          const id = beginTxStatusNotification({
+            network: polkadot,
+            title: "Hello",
+            description: "Please sign the transaction in your wallet",
+          });
+          setTimeout(() => {
+            cancelTxStatusNotification({
+              toastId: id,
+              network: polkadot,
+              title: "Hello",
+              description: "Cancelled",
+            });
+          }, 3000);
+        }}
+      >
+        Click me
+      </button>
+      <Toaster />
     </TypinkProvider>
   </StrictMode>
 );
