@@ -11,6 +11,7 @@ import {
   polkadotPeople,
   TypinkProvider,
 } from "typink";
+import { Toaster } from "sonner";
 
 const supportedNetworks = [
   polkadot,
@@ -28,6 +29,7 @@ createRoot(document.getElementById("root")!).render(
       defaultNetworkIds={supportedNetworks.map((network) => network.id)}
     >
       <App />
+      <Toaster />
     </TypinkProvider>
   </StrictMode>
 );
