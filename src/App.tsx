@@ -1,5 +1,5 @@
 import "./App.css";
-import { Hooks, Status } from "./status";
+import { Status } from "./status";
 
 function App() {
   return (
