@@ -15,6 +15,7 @@
     "@reactive-dot/core": "^0.50.0",
     "@reactive-dot/react": "^0.50.0",
     "@tailwindcss/vite": "^4.1.13",
+    "@tanstack/react-query": "^5.90.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",

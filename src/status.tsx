@@ -1,5 +1,5 @@
 import { useAccounts } from "@reactive-dot/react";
-import { config } from "./config";
+import { config } from "./lib/reactive-dot.config";
 import { ClientStatus } from "./client-status";
 
 export function Status() {

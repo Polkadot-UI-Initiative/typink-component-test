@@ -2,7 +2,7 @@ import { ChainProvider, ReactiveDotProvider } from "@reactive-dot/react";
 import { Suspense } from "react";
 import "./App.css";
 import { Status } from "./status";
-import { config } from "./config";
+import { config } from "./lib/reactive-dot.config";
 
 function App() {
   return (
