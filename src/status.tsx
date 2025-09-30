@@ -1,6 +1,7 @@
 import { useAccounts } from "@reactive-dot/react";
 import { config } from "./lib/reactive-dot.config";
-import { ClientStatus } from "./client-status";
+import { ClientStatus, ClientStatusFallback } from "./client-status";
+import { Suspense } from "react";
 
 export function Status() {
   const accounts = useAccounts();
@@ -14,7 +15,14 @@ export function Status() {
           {accounts[0]?.address}
         </div>
         {chainIds?.map((chainId) => {
-          return <ClientStatus key={chainId} networkId={chainId} />;
+          return (
+            <Suspense
+              key={chainId}
+              fallback={<ClientStatusFallback networkId={chainId} />}
+            >
+              <ClientStatus key={chainId} networkId={chainId} />
+            </Suspense>
+          );
         })}
       </div>
     </div>

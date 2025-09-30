@@ -12,3 +12,9 @@ export function ClientStatus({ networkId }: { networkId: ChainId }) {
     </div>
   );
 }
+
+export function ClientStatusFallback({ networkId }: { networkId: ChainId }) {
+  return (
+    <div className="text-xs text-right font-mono">{networkId}: Loading...</div>
+  );
+}
