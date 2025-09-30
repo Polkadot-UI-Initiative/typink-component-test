@@ -2,32 +2,15 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import {
-  paseo,
-  paseoAssetHub,
-  paseoPeople,
-  polkadot,
-  polkadotAssetHub,
-  polkadotPeople,
-  TypinkProvider,
-} from "typink";
-
-const supportedNetworks = [
-  polkadot,
-  polkadotAssetHub,
-  polkadotPeople,
-  paseo,
-  paseoAssetHub,
-  paseoPeople,
-];
+import { config } from "./config.ts";
+import { ReactiveDotProvider, ChainProvider } from "@reactive-dot/react";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <TypinkProvider
-      supportedNetworks={supportedNetworks}
-      defaultNetworkIds={supportedNetworks.map((network) => network.id)}
-    >
-      <App />
-    </TypinkProvider>
+    <ReactiveDotProvider config={config}>
+      <ChainProvider chainId="polkadot">
+        <App />
+      </ChainProvider>
+    </ReactiveDotProvider>
   </StrictMode>
 );
