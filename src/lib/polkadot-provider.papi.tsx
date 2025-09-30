@@ -40,13 +40,13 @@ export function PolkadotProvider({
   return (
     <QueryClientProvider client={queryClient}>
       <ReactiveDotProvider config={config}>
-        <ChainProvider chainId={chainId}>
-          <Suspense>
+        <Suspense>
+          <ChainProvider chainId={chainId}>
             <SelectedAccountProvider>
               <PapiProvider>{children}</PapiProvider>
             </SelectedAccountProvider>
-          </Suspense>
-        </ChainProvider>
+          </ChainProvider>
+        </Suspense>
       </ReactiveDotProvider>
     </QueryClientProvider>
   );
