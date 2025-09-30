@@ -1,17 +1,15 @@
-// `dot` is the name we gave to `npx papi add`
 import { polkadot } from "@polkadot-api/descriptors";
+import { getWsProvider } from "@polkadot-api/ws-provider";
 import { defineConfig } from "@reactive-dot/core";
-import { createLightClientProvider } from "@reactive-dot/core/providers/light-client.js";
 import { InjectedWalletProvider } from "@reactive-dot/core/wallets.js";
 
-const lightClientProvider = createLightClientProvider();
+const provider = getWsProvider("wss://polkadot-rpc.publicnode.com");
 
 export const config = defineConfig({
   chains: {
-    // "polkadot" here can be any unique string value
     polkadot: {
       descriptor: polkadot,
-      provider: lightClientProvider.addRelayChain({ id: "polkadot" }),
+      provider: provider,
     },
   },
   wallets: [new InjectedWalletProvider()],

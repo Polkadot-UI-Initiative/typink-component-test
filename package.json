@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@polkadot-api/descriptors": "file:.papi/descriptors",
+    "@polkadot-api/ws-provider": "^0.6.1",
     "@reactive-dot/core": "^0.50.0",
     "@reactive-dot/react": "^0.50.0",
     "@tailwindcss/vite": "^4.1.13",
