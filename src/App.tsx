@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import "./App.css";
 import { Status } from "./status";
 import { PolkadotProvider } from "./lib/polkadot-provider.papi";
