@@ -4,7 +4,7 @@ import { ClientStatus, ClientStatusFallback } from "./client-status";
 import { Suspense } from "react";
 
 export function Status() {
-  const accounts = useAccounts();
+  const accounts = useAccounts({ defer: true });
   const chainIds = Object.keys(config.chains);
 
   return (
@@ -12,7 +12,7 @@ export function Status() {
       <div className="flex flex-col">
         <div className="text-xs text-right font-mono">
           <span className="font-mono  text-gray-500">Account</span>{" "}
-          {accounts[0]?.address}
+          {accounts?.[0]?.address || "No accounts"}
         </div>
         {chainIds?.map((chainId) => {
           return (
